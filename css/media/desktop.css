@@ -1,0 +1,11 @@
+.col-1{width: 25%}
+.col-1{width: 50%}
+.col-1{width: 75%}
+.col-1{width: 100%}
+
+@media (max-width: 768px){
+    .col-md-1{width: 25%}
+    .col-md-1{width: 50%}
+    .col-md-1{width: 75%}
+    .col-md-1{width: 100%}
+}

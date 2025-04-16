@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+    <meta charset="UTF-8" />
+    <title>Ejemplo Flexbox Básico</title>
+    <style>
+        .flex-container {
+            
+            border: 3px solid black;
+            display: flex;
+            flex-wrap: wrap;
+            min-height: 100px;
+        }
+        .caja-flex {
+        background-color: skyblue;
+        padding: 20px;
+        font-size: 18px;
+        color: #333;
+        }
+        .caja-flex:nth-child(2) {
+        background-color: lightgreen;
+        /* Ejemplo: este ítem específico centrado al fondo del contenedor */
+        
+        }
+    </style>
+    </head>
+    <body>
+    <h2>Ejemplo de Contenedor Flex</h2>
+    <div class="flex-container">
+        <div class="caja-flex">Caja 1</div>
+        <div class="caja-flex">Caja 2</div>
+        <div class="caja-flex">Caja 3</div>
+    </div>
+    </body>
+    </html>

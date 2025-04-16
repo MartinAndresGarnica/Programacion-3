@@ -1,0 +1,16 @@
+/* Normalizar para distintos navegadores */
+@import url('base/normalize.css');
+@import url('base/typography.css');
+/* Define como se ven los textos en general */
+@import url('base/variables.css');
+
+@import url('components/body.css');
+@import url('components/footer.css');
+@import url('components/header.css');
+
+
+@import url('pages/index.css');
+
+
+@import url('media/desktop.css');
+@import url('media/tablet.css');

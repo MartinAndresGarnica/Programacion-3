@@ -1,0 +1,33 @@
+header{
+    position: fixed;
+    background-color: #2B2D42;
+    display: block;
+    width: 100vw;    
+ } 
+ 
+ .navbar{
+     display: flex;
+     flex-direction: row;
+     text-align: center;
+     align-items: center;
+     justify-content: center;
+ }
+ .navbar li{
+     display: inline;
+     margin: 10pt
+ }
+ .navbar li a {
+     display: inline;
+     color: rgb(194, 193, 193);
+     text-decoration: none;
+     margin-right: 8pt;
+     background-color: #2B2D42;
+     padding: 8pt;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+     border-radius: 8px;
+ }
+ 
+ .navbar li a:hover{
+     background-color: #46496a;
+ }
