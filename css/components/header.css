@@ -13,8 +13,8 @@ header{
      justify-content: center;
  }
  .navbar li{
-     display: inline;
-     margin: 10pt
+    display: inline;
+    margin: 10pt
  }
  .navbar li a {
      display: inline;
