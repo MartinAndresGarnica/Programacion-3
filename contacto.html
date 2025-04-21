@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright English Institute - Contact</title>
+    <link rel="stylesheet" href="css/media/styles_contact.css">
+    <link rel="icon" href="media/solo_logo.png" type="image/png">
+    <!-- fontawesome para los íconos de redes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <img src="media/solo_logo.png" alt="Bright English Institute">
+                <h1>Bright English Institute</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="http://127.0.0.1:5500/Programacion-3/index.html">Home</a></li>
+                    <li><a href="http://127.0.0.1:5500/Programacion-3/cursos.html">Services</a></li>
+                    <li><a href="http://127.0.0.1:5500/Programacion-3/nosotros.html">About Us</a></li>
+                    <li><a href="#">Students</a></li>
+                    <li><a href="http://127.0.0.1:5500/Programacion-3/contacto.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="contact-form">
+            <h2>Contacto</h2>
+            <form action="#" method="post">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono">
+            </div>
+            <div class="form-group">
+                <label for="mensaje">Comentarios:</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="motivo">Motivo de contacto:</label>
+                <select id="motivo" name="motivo">
+                <option value="consulta">Consulta</option>
+                <option value="inscripcion">Inscripción</option>
+                <option value="reclamo">Reclamo</option>
+                <option value="otro">Otro</option>
+                </select>
+            </div> 
+            <div class="form-group">
+                <label>Opciones adicionales:</label><br>
+                <label for="suscripcion">Suscribirme al newsletter</label>
+                <input type="checkbox" id="suscripcion" name="suscripcion">
+                <label for="llamada">Prefiero una llamada</label>
+                <input type="radio" id="llamada" name="preferencia" value="llamada">
+                <label for="emailcontacto">Prefiero contacto por email</label>
+                <input type="radio" id="emailcontacto" name="preferencia" value="email">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpiar">
+            </div>
+            </form>
+            
+            <div class="contact-info">
+            <h3>Datos de Contacto</h3>
+            <p><strong>Email:</strong> brightenglishinstitute@info.combinamos</p>
+            <p><strong>Dirección:</strong> Av. Principal 123, Buenos Aires, Argentina</p>
+            <p><strong>Teléfono:</strong> +54 11 1234 5678</p>
+            <h3>Redes Sociales</h3>
+            <p>
+                <a href="#"><i class="fab fa-facebook-square"></i></a>
+                <a href="#"><i class="fab fa-twitter-square"></i></a>
+                <a href="#"><i class="fab fa-instagram-square"></i></a>
+            </p>
+
+            <h3>Ubicación</h3>
+            <a href="https://www.google.com.ar/maps/search/Avenida+Principal+123,+Provincia+de+Buenos+Aires,+Argentina/@-34.6640426,-58.6994712,13.75z?hl=es&entry=ttu&g_ep=EgoyMDI1MDQxNi4xIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D" target="_blank">
+                <img src="media/mapa.jpg" alt="Mapa de ubicación" class="mapa">
+            </a>
+            </div>
+        </div>
+        <footer>
+            <p>&copy; 2023 Bright English Institute. All rights reserved.</p>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="http://127.0.0.1:5500/Programacion-3/contacto.html">Contact Us</a></li>
+            </ul>
+        </footer>
+</body>
+</html>
