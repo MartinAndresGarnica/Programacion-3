@@ -151,7 +151,45 @@ button {
 button:hover {
     background-color: #d56060;
 }
-  
+
+footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #2c2c54;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #ccc;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+footer ul li {
+    display: inline;
+}   
+
+footer ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    padding: 8px 12px;
+    
+}
+
 @media (max-width: 768px) {
     .container {
         height: auto;
