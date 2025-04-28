@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validacion</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <form id="formulario" novalidate>
+        <div>
+            <label>Nombre:</label>
+            <input type="text" id="nombre">
+            <div class="error" id="ernombre"></div>
+        </div>
+    
+        <div>
+            <label>Email:</label>
+            <input type="email" id="email">
+            <div class="error" id="eremail"></div>
+        </div>
+    
+        <div>
+            <label>Edad:</label>
+            <input type="number" id="edad">
+            <div class="error" id="eredad"></div>
+        </div>
+    
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script src="formulario.js"></script>
+</body>
+</html>
