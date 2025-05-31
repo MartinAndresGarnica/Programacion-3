@@ -89,7 +89,7 @@ class PacientesModel {
       try {
 
         const pacienteEncontrado = this.data.find((p) => p.id == id);
-        if (pacienteEncontrado === null) {
+        if (pacienteEncontrado === null|| pacienteEncontrado === undefined) {
           throw new Error("No se encuntra el paciente");
         }
         pacienteEncontrado.dni = paciente.dni;
