@@ -18,8 +18,8 @@ class TurnosModel{
         return new Promise((resolve, reject) => {
             try {
                 const identificador = Number(idPaciente);
-                const turnoEncontrado = this.data.find(turno => turno.idPaciente === identificador)
-                resolve(turnoEncontrado||null);
+                const turnosEncontrado = this.data.filter(turno => turno.idPaciente === identificador)
+                resolve(turnosEncontrado.length > 0 ? turnosEncontrado : null);
             } catch (error) {
                 reject(error);
             }

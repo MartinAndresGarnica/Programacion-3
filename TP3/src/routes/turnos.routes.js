@@ -7,6 +7,6 @@ const {validate} = require('../middlewares/validate.js');
 const rutaTurnos = Router();
 
 rutaTurnos.get('/', turnosController.list);
-rutaTurnos.get('/:idPaciente', turnosController.getTurnosByIdPaciente);
+rutaTurnos.get('/:idPaciente',verifyTokenMiddleware ,validate(turnoSchema.getByIdPaciente, "params"), turnosController.getTurnosByIdPaciente);
 
 module.exports = rutaTurnos;

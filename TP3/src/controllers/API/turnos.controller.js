@@ -21,7 +21,7 @@ class TurnosController{
         }
     }
 
-    async list() {
+    async list(req, res) {
         res.status(200).json(await turnosModel.list());
     }
 }

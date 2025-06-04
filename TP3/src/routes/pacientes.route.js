@@ -7,10 +7,10 @@ const {validate} = require('../middlewares/validate.js');
 const rutaPacientes = Router();
 
 rutaPacientes.get('/',pacientesController.list);
-rutaPacientes.get('/:id', validate(pacienteSchema.getById, "params"), pacientesController.getPacienteById);
+rutaPacientes.get('/:id',verifyTokenMiddleware,validate(pacienteSchema.getById, "params"), pacientesController.getPacienteById);
 
 rutaPacientes.post('/login',pacientesController.login)
-rutaPacientes.post('/', validate(pacienteSchema.create), pacientesController.create);
+rutaPacientes.post('/',verifyTokenMiddleware,validate(pacienteSchema.create), pacientesController.create);
 
 rutaPacientes.put('/:id',verifyTokenMiddleware,pacientesController.update);
 

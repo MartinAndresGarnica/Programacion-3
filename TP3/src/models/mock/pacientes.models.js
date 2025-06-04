@@ -32,7 +32,7 @@ class PacientesModel {
       }
     });
   }
-  validate(email, password) {
+   validate(email, password) {
     return new Promise(async (resolve, reject) => {
       try {
         const userFound = await this.findByEmail(email, password);
