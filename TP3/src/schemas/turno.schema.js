@@ -26,8 +26,9 @@ const turnoSchema = {
             ])
     }),
     delete: Joi.object({
-        id: Joi.number().integer().positive().required()
+        idTurno: Joi.number().integer().positive().required()
     }),
+
     getByIdPaciente: Joi.object({
         idPaciente: Joi.number().integer().positive().required()
     })
