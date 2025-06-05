@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Turnos de la Clínica</title>
+  <link rel="stylesheet" href="/css/turnos.css">
+</head>
+<body>
+  <h1>Listado de Turnos</h1>
+  <div class="container">
+
+    <% if (turnos.length === 0) { %>
+      <p>No hay turnos registrados.</p>
+    <% } else { %>
+      <table border="1" cellpadding="10">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>IDPaciente</th>
+            <th>Paciente</th>
+            <th>Fecha</th>
+            <th>Motivo</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% turnos.forEach(turno => { %>
+            <tr>
+              <td><%= turno.id %></td>
+              <%if (turno.idPaciente === null) { %>
+                <td><a href="">Agregar Paciente</a></td>
+                <td><p></p></td>
+              <% }else{%>
+                <td><%= turno.idPaciente %></td>
+                <td><%= turno.nombrePaciente %></td>
+              <% } %>
+              <td><%= turno.fecha %></td>
+              <td><%= turno.motivo %></td>
+              <td><%= turno.estado %></td>
+              <td>
+                <!-- Acciones: por ejemplo cancelar turno -->
+                <form action="/turnos/<%= turno.id %>?_method=DELETE" method="POST" style="display:inline;">
+                  <button type="submit" onclick="return confirm('¿Seguro que querés cancelar este turno?')">Cancelar</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } %>
+    <a href="/turnos/nuevo">Registrar nuevo turno</a>
+  </div>
+
+</body>
+</html>

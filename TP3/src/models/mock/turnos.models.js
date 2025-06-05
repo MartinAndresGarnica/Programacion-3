@@ -8,7 +8,15 @@ class TurnosModel{
                 1,
                 1,
                 new Date(),
-                "Consulta"
+                "Consulta",
+                "Reservado"
+            ),
+            new Turno(
+                2,
+                null,
+                new Date(),
+                "",
+                "Disponible"
             )
         )
         this.id = 2

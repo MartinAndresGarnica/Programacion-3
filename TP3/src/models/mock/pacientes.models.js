@@ -7,7 +7,7 @@ class PacientesModel {
     this.data.push(
       new Persona(
         "123456312787",
-        "Sergfasdfio",
+        "Sergio",
         "Antozzi",
         "email@gmail.com",
         "12345",
