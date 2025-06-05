@@ -8,5 +8,5 @@ const rutaTurnos = Router();
 
 rutaTurnos.get('/', turnosController.list);
 rutaTurnos.get('/:idPaciente',verifyTokenMiddleware ,validate(turnoSchema.getByIdPaciente, "params"), turnosController.getTurnosByIdPaciente);
-
+rutaTurnos.delete('/:idTurno', verifyTokenMiddleware, turnosController.cancelarTurno);
 module.exports = rutaTurnos;

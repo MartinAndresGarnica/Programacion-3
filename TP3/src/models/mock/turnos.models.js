@@ -26,6 +26,21 @@ class TurnosModel{
         })
     }
 
+    cancelarTurno(idTurno) {
+    return new Promise((resolve, reject) => {
+        try {
+            const id = Number(idTurno);
+            const index = this.data.findIndex(turno => turno.id === id);
+            if (index === -1) return resolve(false);
+
+            this.data.splice(index, 1); 
+            resolve(true);
+        } catch (error) {
+            reject(error);
+        }
+    });
+}
+
     list(){
         return new Promise((resolve, reject) => {
             resolve(this.data);

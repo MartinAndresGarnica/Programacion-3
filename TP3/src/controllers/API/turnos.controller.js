@@ -21,6 +21,30 @@ class TurnosController{
         }
     }
 
+    async cancelarTurno(req, res) {
+    try {
+        const idTurno = parseInt(req.params.idTurno);
+        const cancelado = await turnosModel.cancelarTurno(idTurno);
+
+        if (!cancelado) {
+            return res.status(404).json({
+                success: false,
+                message: `No se encontró el turno con id ${idTurno}`
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: `Turno ${idTurno} cancelado correctamente.`
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            error: error.message
+        });
+    }
+}
+
     async list(req, res) {
         res.status(200).json(await turnosModel.list());
     }
