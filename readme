@@ -1,13 +1,8 @@
-archivos modificados
+intalar dependencias con npm install
 
-imanol Delite:
-controllers/API/turnosLlocal.routes.js
-server.js
-router/turnos.router.js
-schemas/turnos.schema.js
-models/mock/turnos.models.js
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
-![alt text](image-3.png)
-![alt text](image-4.png)
+
+Localhost:3000/api/v1/pacientes/:idpaciente
+Localhost:3000/api/v1/turnos
+Localhost:3000/api/v1/nuevo
+Localhost:3000/api/v1/asignar/:id
+Localhost:3000/api/v1/login
