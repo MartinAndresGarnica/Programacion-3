@@ -8,8 +8,17 @@ TEMPLATE=ejs
 
 Localhost:3000/api/v1/pacientes/:idpaciente
 Localhost:3000/api/v1/turnos
-Localhost:3000/api/v1/nuevo
+Localhost:3000/nuevo
 Localhost:3000/api/v1/asignar/:id
 Localhost:3000/api/v1/login
-
-
+Localhost:3000/pacientes/index
+Localhost:3000/asignar/:turnoId
+Localhost:3000/pacientes
+Localhost:3000/turnos
+Localhost:3000/:id/delete
+Localhost:3000/api/v1/
+Localhost:3000/api/v1/:id
+Localhost:3000/api/v1/baja/:id
+Localhost:3000/api/v1/:idTurno
+Localhost:3000/api/v1/:idPaciente
+Localhost:3000/api/v1/nuevo
