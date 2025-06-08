@@ -21,6 +21,29 @@ class TurnosController{
         }
     }
 
+    async crearTurno(req, res) {
+        try {
+            const { idPaciente, fecha, motivo, estado } = req.body;
+
+            if (!idPaciente || !fecha) {
+                return res.status(400).send("Faltan datos obligatorios");
+            }
+            const nuevoId = turnosModel.id + 1;
+            const nuevoTurno = {
+                id: nuevoId,
+                idPaciente: Number(idPaciente),
+                fecha: new Date(fecha),
+                motivo: motivo || '',
+                estado: estado || 'Reservado',
+            };
+            turnosModel.data.push(nuevoTurno);
+            turnosModel.id = nuevoId;
+            res.redirect('/turnos');
+        } catch (error) {
+            res.status(500).send('Error al crear el turno');
+        }
+    }
+
     async cancelarTurno(req, res) {
     try {
         const idTurno = parseInt(req.params.idTurno);

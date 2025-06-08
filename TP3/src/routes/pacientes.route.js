@@ -11,6 +11,7 @@ rutaPacientes.get('/:id',verifyTokenMiddleware,validate(pacienteSchema.getById, 
 
 rutaPacientes.post('/login',pacientesController.login)
 rutaPacientes.post('/',verifyTokenMiddleware,validate(pacienteSchema.create), pacientesController.create);
+rutaPacientes.post('/baja/:id', verifyTokenMiddleware, pacientesController.bajaPaciente);
 
 rutaPacientes.put('/:id',verifyTokenMiddleware,pacientesController.update);
 

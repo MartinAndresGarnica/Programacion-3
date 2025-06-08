@@ -16,7 +16,7 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th>IDPaciente</th>
+            <th>ID Paciente</th>
             <th>Paciente</th>
             <th>Fecha</th>
             <th>Motivo</th>
@@ -26,31 +26,39 @@
         </thead>
         <tbody>
           <% turnos.forEach(turno => { %>
-            <tr>
+            <tr class="<%= turno.idPaciente ? 'reservado' : 'disponible' %>">
               <td><%= turno.id %></td>
-              <%if (turno.idPaciente === null) { %>
-                <td><a href="">Agregar Paciente</a></td>
-                <td><p></p></td>
-              <% }else{%>
+
+              <% if (!turno.idPaciente) { %>
+                <td></td>  
+                <td>
+                  <a href="/turnos/asignar/<%= turno.id %>" class="btn btn-agregar">Agregar Paciente</a>
+                </td>
+              <% } else { %>
                 <td><%= turno.idPaciente %></td>
                 <td><%= turno.nombrePaciente %></td>
               <% } %>
+
               <td><%= turno.fecha %></td>
               <td><%= turno.motivo %></td>
               <td><%= turno.estado %></td>
-              <td>
-                <!-- Acciones: por ejemplo cancelar turno -->
-                <form action="/turnos/<%= turno.id %>?_method=DELETE" method="POST" style="display:inline;">
-                  <button type="submit" onclick="return confirm('¿Seguro que querés cancelar este turno?')">Cancelar</button>
+              <td class="acciones">
+                <form action="/turnos/<%= turno.id %>?_method=DELETE" method="POST">
+                  <button type="submit" class="btn btn-cancelar" onclick="return confirm('Seguro que querés cancelar este turno?')">Cancelar</button>
                 </form>
+                <% if (turno.idPaciente) { %>
+                  <form action="/pacientes/<%= turno.idPaciente %>?_method=DELETE" method="POST">
+                    <button type="submit" class="btn btn-baja" onclick="return confirm('Seguro que querés dar de baja a este paciente?')">Baja Paciente</button>
+                  </form>
+                <% } %>
               </td>
             </tr>
           <% }) %>
         </tbody>
       </table>
     <% } %>
-    <a href="/turnos/nuevo">Registrar nuevo turno</a>
+    <br>
+    <a href="/turnos/nuevo" class="btn btn-agregar">Registrar nuevo turno</a>
   </div>
-
 </body>
 </html>

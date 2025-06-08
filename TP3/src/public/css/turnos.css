@@ -64,3 +64,42 @@ button {
 button:hover {
   background-color: #d56b56;
 }
+
+/* Estado del turno */
+.disponible {
+  background-color: #d4edda;
+}
+
+.reservado {
+  background-color: #f8d7da;
+}
+
+/* Acciones (botones dentro de la tabla) */
+.acciones form,
+.acciones a {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn-cancelar {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-baja {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-agregar {
+  background-color: #28a745;
+  color: white;
+}

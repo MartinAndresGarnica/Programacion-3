@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Pacientes</title>
+    <link rel="stylesheet" href="/css/pacientes.css" />
+</head>
+<body>
+    <h1>Listado de pacientes</h1>
+    <ul>
+        <% pacientes.forEach(paciente => { %>
+        <li>
+            <%= paciente.nombre %> - <%= paciente.email %>
+            <form action="/pacientes/<%= paciente.id %>/delete" method="POST" style="display:inline;">
+            <button type="submit" onclick="return confirm('¿Seguro que querés eliminar?')">Eliminar</button>
+            </form>
+        </li>
+        <% }) %>
+    </ul>
+    <a href="/pacientes/nuevo" class="btn">Agregar paciente</a>
+</body>
+</html>

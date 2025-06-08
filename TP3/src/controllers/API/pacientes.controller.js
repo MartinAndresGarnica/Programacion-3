@@ -63,6 +63,31 @@ class PacientesController {
     pacientesModel.update(id, nuevoPaciente);
     res.status(200).json({ message: "actualizado" });
   }
+
+  async bajaPaciente(req, res) {
+    try {
+      const id = req.params.id;
+      const resultado = await pacientesModel.baja(id); 
+
+      if (!resultado) {
+        return res.status(404).json({
+          success: false,
+          message: `No se encontró el paciente con id: ${id}`
+        });
+      }
+
+      res.status(200).json({
+        success: true,
+        message: `Paciente con id ${id} dado de baja correctamente`
+      });
+    } catch (error) {
+      res.status(500).json({
+        success: false,
+        message: "Error al dar de baja al paciente",
+        error: error.message
+      });
+    }
+  }
 }
 
-module.exports = new PacientesController();
+module.exports = new PacientesController

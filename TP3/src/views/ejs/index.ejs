@@ -1,30 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title><%= title %></title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-    <h1><%= message %></h1>
-    <h2>Estoy en EJS</h2>
-    <p>Bienvenido a nuestra aplicación</p>
+    <meta charset="UTF-8" />
+    <title>Clínica Médica - Panel Principal</title>
+    <link rel="stylesheet" href="/css/home.css" />
+    </head>
+    <body>
+    <div class="container">
+        <h1>Bienvenido al Panel de la Clínica</h1>
+        <p>Seleccione una acción para gestionar los turnos y pacientes:</p>
 
-    <% if (showFeatures) { %>
-        <h2>Características principales:</h2>
-        <ul>
-            <% features.forEach(function(feature) { %>
-                <li><%= feature %></li>
-            <% }); %>
-        </ul>
-    <% } else { %>
-        <p>No hay características disponibles.</p>
-    <% } %>
-
-    <%# Esto es un comentario (no se renderiza en el HTML) %>
-    
-    <footer>
-        <p>© <%= new Date().getFullYear() %> Mi Aplicación</p>
-    </footer>
+        <div class="actions">
+        <a href="/turnos" class="btn btn-primario">Ver Turnos</a>
+        <a href="/turnos/nuevo" class="btn btn-registrar">Registrar Nuevo Turno</a>
+        <a href="/pacientes" class="btn btn-info">Gestionar Pacientes</a>
+        </div>
+    </div>
 </body>
 </html>

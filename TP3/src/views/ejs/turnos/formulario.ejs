@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Registrar Nuevo Turno</title>
+    <link rel="stylesheet" href="/css/turnos.css" />
+    </head>
+    <body>
+    <h1>Registrar Nuevo Turno</h1>
+
+    <form action="/turnos/nuevo" method="POST">
+        <div>
+        <label for="idPaciente">Paciente:</label>
+        <select id="idPaciente" name="idPaciente" required>
+            <option value="">-- Seleccione un paciente --</option>
+            <% pacientes.forEach(paciente => { %>
+            <option value="<%= paciente.id %>"><%= paciente.nombre %> <%= paciente.apellido %></option>
+            <% }) %>
+        </select>
+        </div>
+
+        <div>
+        <label for="fecha">Fecha y hora:</label>
+        <input type="datetime-local" id="fecha" name="fecha" required />
+        </div>
+
+        <div>
+        <label for="motivo">Motivo:</label>
+        <input type="text" id="motivo" name="motivo" />
+        </div>
+
+        <div>
+        <label for="estado">Estado:</label>
+        <select id="estado" name="estado" required>
+            <option value="Reservado">Reservado</option>
+            <option value="Disponible">Disponible</option>
+            <option value="Cancelado">Cancelado</option>
+        </select>
+        </div>
+
+        <button type="submit">Registrar Turno</button>
+    </form>
+
+    <br />
+    <a href="/turnos">Volver al listado de turnos</a>
+</body>
+</html>

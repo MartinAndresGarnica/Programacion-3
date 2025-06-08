@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Asignar Paciente al Turno</title>
+    <link rel="stylesheet" href="/css/pacientes.css" />
+    </head>
+    <body>
+    <h1>Asignar Paciente al Turno <%= turno.id %></h1>
+    <form action="/turnos/asignar/<%= turno.id %>" method="POST">
+        <label for="pacienteId">Seleccione un paciente:</label>
+        <select name="pacienteId" id="pacienteId" required>
+        <% pacientes.forEach(paciente => { %>
+            <option value="<%= paciente.id %>"><%= paciente.nombre %> <%= paciente.apellido %></option>
+        <% }) %>
+        </select>
+        <button type="submit" class="btn btn-agregar">Asignar</button>
+    </form>
+    <br />
+    <a href="/turnos">Volver a Turnos</a>
+</body>
+</html>

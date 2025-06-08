@@ -5,10 +5,10 @@ const pacienteSchema = {
         dni: Joi.string().pattern(/^\d+$/).required().messages({
             'string.pattern.base': 'El DNI debe ser un número'
         }),
-        nombre: Joi.string().required(),
-        apellido: Joi.string().required(),
+        nombre: Joi.string().min(3).required(),
+        apellido: Joi.string().min(3).required(),
         email: Joi.string().required(),
-        password: Joi.string().required(),
+        password: Joi.string().min(8).required(),
     }),
 
     update: Joi.object({

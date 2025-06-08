@@ -1,0 +1,79 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #0077b6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    text-align: center;
+    }
+
+th {
+    background-color: #0077b6;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    background-color: #0077b6;
+    transition: background 0.3s ease;
+    margin-right: 8px;
+}
+
+.btn:hover {
+    background-color: #005f87;
+}
+
+.btn-baja {
+    background-color: #d00000;
+}
+
+.btn-baja:hover {
+    background-color: #a00000;
+}
+
+.btn-agregar {
+    background-color: #38b000;
+}
+
+.btn-agregar:hover {
+    background-color: #2d9300;
+}
+
+.acciones {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}

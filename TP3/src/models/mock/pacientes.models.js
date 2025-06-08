@@ -32,7 +32,7 @@ class PacientesModel {
       }
     });
   }
-   validate(email, password) {
+  validate(email, password) {
     return new Promise(async (resolve, reject) => {
       try {
         const userFound = await this.findByEmail(email, password);
@@ -139,6 +139,14 @@ class PacientesModel {
 
     })
   }
+
+  async baja(id) {
+    const index = this.data.findIndex(p => p.id === Number(id));
+    if (index === -1) return false;
+    this.data.splice(index, 1);
+    return true;
+  }
+
 }
 
 module.exports = new PacientesModel();
