@@ -1,0 +1,47 @@
+.tarjeta {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 5 px 20px;
+  transition: transform 0.2s;
+}
+.tarjeta:hover {
+  transform: translateY(-2px);
+}
+
+.tarjeta__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.tarjeta__id {
+  color: rgb(104, 100, 100);
+  font-size: 0.875rem;
+}
+
+.tarjeta__titulo {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgb(25, 25, 66);
+  margin-bottom: 20px;
+}
+
+.tarjeta__info {
+  color: rgb(82, 97, 100);
+  margin-bottom: 2px;
+}
+
+.tarjeta__boton {
+  background: rgb(7, 69, 119);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 0.3 px;
+  border: none;
+  cursor: pointer;
+}
+
+.tarjeta__boton:hover {
+  background:blue;
+}
