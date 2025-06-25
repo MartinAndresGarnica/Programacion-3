@@ -11,6 +11,8 @@ module.exports = {
         genero: 'Realismo mágico',
         reseña: 'Una obra maestra de la literatura latinoamericana.',
         calificacion: 5,
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         title: 'El principito',
@@ -19,6 +21,8 @@ module.exports = {
         genero: 'Fábula',
         reseña: 'Un libro para niños y adultos por igual.',
         calificacion: 4,
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         title: '1984',
@@ -27,6 +31,8 @@ module.exports = {
         genero: 'Ciencia ficción',
         reseña: 'Una advertencia sobre los peligros del totalitarismo.',
         calificacion: 5,
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
     ], {});
   },

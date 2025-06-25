@@ -19,7 +19,10 @@ const sequelize = new Sequelize(
   }
 );
 
+const Libro = require('./libro')(sequelize, Sequelize.DataTypes);
+
 module.exports = {
   sequelize,
-  Sequelize
+  Sequelize,
+  Libro
 };
