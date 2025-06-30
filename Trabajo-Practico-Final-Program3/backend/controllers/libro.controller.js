@@ -34,15 +34,15 @@ const getAllLibro = async (req, res) => {
 const getLibroByGenero = async (req, res) => {
   try {
     const { genero } = req.params;
-    const libro = await Libro.findByPk(genero);
-    
-    if (!libro) {
-      return res.status(404).json({ error: 'Libro not found' });
+    const libros = await Libro.findAll({ where: { genero } });
+
+    if (!libros || libros.length === 0) {
+      return res.status(404).json({ error: 'No se encontraron libros para ese género' });
     }
-    
-    res.json({ libro });
+
+    res.json({ libros });
   } catch (error) {
-    res.status(500).json({ error: 'Error fetching libro', message: error.message });
+    res.status(500).json({ error: 'Error fetching libros', message: error.message });
   }
 };
 
@@ -89,9 +89,27 @@ const updateLibro = async (req, res) => {
   }
 };
 
+const deleteLibro = async (req, res) => {
+  try {
+    const { id } = req.params;
+    
+    const libro = await Libro.findByPk(id);
+    if (!libro) {
+      return res.status(404).json({ error: 'Libro not found' });
+    }
+    
+    await libro.destroy();
+    
+    res.json({ message: 'Libro deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ error: 'Error deleting libro', message: error.message });
+  }
+};
+
 module.exports = {
   getAllLibro,
   getLibroByGenero,
   createLibro,
-  updateLibro
+  updateLibro,
+  deleteLibro
 };

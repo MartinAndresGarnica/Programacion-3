@@ -24,6 +24,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      autor: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       reseña: {
         type: Sequelize.STRING
       },
