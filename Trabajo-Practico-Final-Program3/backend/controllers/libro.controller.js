@@ -1,4 +1,5 @@
 const { Libro } = require('../models');
+const normalizarTexto = require('../middleware/NormalizarTexto.middleware');
 
 // GET /api/tasks - Obtener todas las tareas
 const getAllLibro = async (req, res) => {
@@ -31,16 +32,37 @@ const getAllLibro = async (req, res) => {
   }
 };
 
+const getLibroById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const libro = await Libro.findByPk(id);
+    
+    if (!libro) {
+      return res.status(404).json({ error: 'Libro not found' });
+    }
+    
+    res.json({ libro });
+  } catch (error) {
+    res.status(500).json({ error: 'Error fetching libro', message: error.message });
+  }
+};
+
+
 const getLibroByGenero = async (req, res) => {
   try {
     const { genero } = req.params;
-    const libros = await Libro.findAll({ where: { genero } });
+    const generoNormalizado = normalizarTexto(genero);
+    const libros = await Libro.findAll();
 
-    if (!libros || libros.length === 0) {
+    const librosFiltrados = libros.filter(libro =>
+      normalizarTexto(libro.genero) === generoNormalizado
+    );
+
+    if (!librosFiltrados || librosFiltrados.length === 0) {
       return res.status(404).json({ error: 'No se encontraron libros para ese género' });
     }
 
-    res.json({ libros });
+    res.json({ libros: librosFiltrados });
   } catch (error) {
     res.status(500).json({ error: 'Error fetching libros', message: error.message });
   }
@@ -48,14 +70,16 @@ const getLibroByGenero = async (req, res) => {
 
 const createLibro = async (req, res) => {
   try {
-    const { title, description, status } = req.body;
-    
+    const { title, description, status, genero, autor, reseña, calificacion } = req.body;
     const libro = await Libro.create({
       title,
       description,
-      status: status || 'pending'
+      status,
+      genero,
+      autor,
+      reseña,
+      calificacion
     });
-    
     res.status(201).json({ 
       message: 'Libro created successfully',
       libro 
@@ -108,6 +132,7 @@ const deleteLibro = async (req, res) => {
 
 module.exports = {
   getAllLibro,
+  getLibroById,
   getLibroByGenero,
   createLibro,
   updateLibro,

@@ -1,46 +1,103 @@
-function libroForm({libro, onSubmit}){
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        const libroData = {
-          title: formData.get('title'),
-          description: formData.get('description'),
-          genero: formData.get('genero'),
-          autor: formData.get('autor'),
-          reseña: formData.get('reseña'),
-          calificacion: formData.get('calificacion'),
-        };
-        
-        onSubmit(libroData);
-      };
+import { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+
+function LibroForm() {
+    const navigate = useNavigate();
+    const { id } = useParams();
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [genero, setGenero] = useState('');
+    const [autor, setAutor] = useState('');
+    const [reseña, setReseña] = useState('');
+    const [calificacion, setCalificacion] = useState(0);
+    const [status, setStatus] = useState('');
+
+    useEffect(() => {
+        if (id) {
+            fetch(`http://localhost:3001/api/libros/${id}`)
+                .then(res => res.json())
+                .then(data => {
+                    const libro = data.libro;
+                    setTitle(libro.title || '');
+                    setDescription(libro.description || '');
+                    setGenero(libro.genero || '');
+                    setAutor(libro.autor || '');
+                    setReseña(libro.reseña || '');
+                    setCalificacion(libro.calificacion || 0);
+                    setStatus(libro.status || '');
+                });
+        } else {
+            setTitle('');
+            setDescription('');
+            setGenero('');
+            setAutor('');
+            setReseña('');
+            setCalificacion(0);
+            setStatus('');
+        }
+    }, [id]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const libroData = { title, description, genero, autor, reseña, calificacion, status };
+        if (id) {
+            fetch(`http://localhost:3001/api/libros/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(libroData)
+            })
+                .then(res => res.json())
+                .then(() => navigate('/'));
+        } else {
+            fetch('http://localhost:3001/api/libros', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(libroData)
+            })
+                .then(res => res.json())
+                .then(() => navigate('/'));
+        }
+    };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="libro-form" onSubmit={handleSubmit}>
+            <h2>{id ? 'Editar Libro' : 'Agregar Libro'}</h2>
             <div>
-                <label htmlFor="title">Título:</label>
-                <input type="text" id="title" name="title" defaultValue={libro?.title || ''} required />
+                <label>Título:</label>
+                <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
             </div>
             <div>
-                <label htmlFor="description">Descripción:</label>
-                <input type="text" id="description" name="description" defaultValue={libro?.description || ''} />
+                <label>Descripción:</label>
+                <textarea value={description} onChange={(e) => setDescription(e.target.value)} required />
             </div>
             <div>
-                <label htmlFor="genero">Género:</label>
-                <input type="text" id="genero" name="genero" defaultValue={libro?.genero || ''} required />
+                <label>Género:</label>
+                <input type="text" value={genero} onChange={(e) => setGenero(e.target.value)} required />
             </div>
             <div>
-                <label htmlFor="autor">Autor:</label>
-                <input type="text" id="autor" name="autor" defaultValue={libro?.autor || ''} required />
+                <label>Autor:</label>
+                <input type="text" value={autor} onChange={(e) => setAutor(e.target.value)} required />
             </div>
             <div>
-                <label htmlFor="reseña">Reseña:</label>
-                <input type="text" id="reseña" name="reseña" defaultValue={libro?.reseña || ''} />
+                <label>Reseña:</label>
+                <textarea value={reseña} onChange={(e) => setReseña(e.target.value)} />
             </div>
             <div>
-                <label htmlFor="calificacion">Calificación:</label>
-                <input type="number" id="calificacion" name="calificacion" defaultValue={libro?.calificacion || 0} min="0" max="5" required />
+                <label>Calificación:</label>
+                <input type="number" value={calificacion} onChange={(e) => setCalificacion(Number(e.target.value))} min="0" max="5" step="0.1" required />
             </div>
-            <button type="submit">Guardar</button>
+            <div>
+                <label>Status:</label>
+                <select value={status} onChange={(e) => setStatus(e.target.value)} required>
+                    <option value="">Seleccione un estado</option>
+                    <option value="Leido">Leido</option>
+                    <option value="Leyendo">Leyendo</option>
+                    <option value="Por leer">Por leer</option>
+                </select>
+            </div>
+            <button type="submit">{id ? 'Actualizar Libro' : 'Agregar Libro'}</button>
         </form>
     );
 }
+
+export default LibroForm;

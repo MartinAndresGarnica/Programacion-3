@@ -1,19 +1,16 @@
-import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LibrosPage from './components/libroTraer';
+import LibroForm from './components/libroForm';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>¡Bienvenido a tu nueva aplicación!</h1>
-        <p>Frontend React funcionando correctamente</p>
-        <p>
-          <a href="/api/health" target="_blank" rel="noopener noreferrer">
-            Verificar estado de la API
-          </a>
-        </p>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LibrosPage />} />
+        <Route path="/libroForm" element={<LibroForm />} />
+        <Route path="/libroForm/:id" element={<LibroForm />} />
+      </Routes>
+    </Router>
   );
 }
 
