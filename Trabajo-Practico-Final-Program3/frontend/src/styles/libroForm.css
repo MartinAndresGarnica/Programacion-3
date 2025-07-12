@@ -1,0 +1,51 @@
+.libro-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #f9f9f9;
+}
+
+.libro-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.libro-form div {
+  margin-bottom: 1rem;
+}
+
+.libro-form label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.libro-form input,
+.libro-form textarea,
+.libro-form select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.libro-form button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background: #1976d2;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.libro-form button:hover {
+  background: #125ea2;
+}
+
+.libro-form .error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}

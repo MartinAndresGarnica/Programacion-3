@@ -1,0 +1,54 @@
+.libro-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1.5rem;
+}
+
+.agregar-libro-btn {
+  background: #43a047;
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.agregar-libro-btn:hover {
+  background: #2e7031;
+}
+
+.buscar-genero-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.buscar-genero-input {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.buscar-genero-btn {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.buscar-genero-btn:hover {
+  background: #125ea2;
+}
+
+.libros-titulo {
+  margin-bottom: 1rem;
+  color: #222;
+  font-size: 2rem;
+  font-weight: bold;
+}

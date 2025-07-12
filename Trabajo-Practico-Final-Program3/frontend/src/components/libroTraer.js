@@ -1,5 +1,11 @@
+
+
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+
+import '../styles/card.css';
+import '../styles/libroTraer.css';
+
 
 
 function LibrosPage() {
@@ -49,27 +55,32 @@ function LibrosPage() {
 
   return (
     <div>
-      <Link to="/libroForm">Agregar Libro</Link>
-      <form onSubmit={e => { e.preventDefault(); buscarLibroGenero(e.target.genero.value); }} style={{margin: '1em 0'}}>
-        <input type="text" name="genero" placeholder="Buscar por genero" />
-        <button type="submit">Buscar</button>
-      </form>
-      <h2>Libros</h2>
-      <ul>
-        {libros.map(libro => (
-          <li key={libro.id}>
-            <h3>Titulo: {libro.title}</h3>
-            <p>Autor: {libro.autor}</p>
-            <p>Calificacion: {libro.calificacion}</p>
-            <p>Estado: {libro.status}</p>
-            <p>Genero: {libro.genero}</p>
-            <p>Reseña del libro: {libro.reseña}</p>
-            <p>Descripción: {libro.description}</p>
-            <button onClick={() => navigate(`/libroForm/${libro.id}`)}>Editar</button>
-            <button onClick={() => deleteLibro(libro.id)}>Eliminar</button>
-          </li>
-        ))}
-      </ul>
+      <div className="libro-header">
+        <Link className="agregar-libro-btn" to="/libroForm">Agregar Libro</Link>
+        <form className="buscar-genero-form" onSubmit={e => { e.preventDefault(); buscarLibroGenero(e.target.genero.value); }}>
+          <input className="buscar-genero-input" type="text" name="genero" placeholder="Buscar por genero" />
+          <button className="buscar-genero-btn" type="submit">Buscar</button>
+        </form>
+      </div>
+      <h2 className="libros-titulo">Libros</h2>
+      <div className="Container-card">
+        <ul>
+          {libros.map(libro => (
+            <li className="card" key={libro.id}>
+              <h3>Titulo: {libro.title}</h3>
+              <img src={libro.image || '/assets/images/PlacehHolder.png'} alt="" style={{ width: '100px', height: '150px' }} />
+              <p>Autor: {libro.autor}</p>
+              <p>Calificacion: {libro.calificacion}</p>
+              <p>Estado: {libro.status}</p>
+              <p>Genero: {libro.genero}</p>
+              <p>Reseña del libro: {libro.reseña}</p>
+              <p>Descripción: {libro.description}</p>
+              <button onClick={() => navigate(`/libroForm/${libro.id}`)}>Editar</button>
+              <button onClick={() => deleteLibro(libro.id)}>Eliminar</button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
