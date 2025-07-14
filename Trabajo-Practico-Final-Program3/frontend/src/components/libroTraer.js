@@ -55,28 +55,27 @@ function LibrosPage() {
 
   return (
     <div>
+      <h2 className="libros-titulo">SISTEMA DE BIBLIOTECA PERSONAL</h2>
       <div className="libro-header">
-        <Link className="agregar-libro-btn" to="/libroForm">Agregar Libro</Link>
         <form className="buscar-genero-form" onSubmit={e => { e.preventDefault(); buscarLibroGenero(e.target.genero.value); }}>
           <input className="buscar-genero-input" type="text" name="genero" placeholder="Buscar por genero" />
           <button className="buscar-genero-btn" type="submit">Buscar</button>
         </form>
+        <Link className="agregar-libro-btn" to="/libroForm">Agregar Libro</Link>
       </div>
-      <h2 className="libros-titulo">Libros</h2>
       <div className="Container-card">
         <ul>
           {libros.map(libro => (
             <li className="card" key={libro.id}>
+              <button onClick={() => deleteLibro(libro.id)}>❌</button>
               <h3>Titulo: {libro.title}</h3>
-              <img src={libro.image || '/assets/images/PlacehHolder.png'} alt="" style={{ width: '100px', height: '150px' }} />
               <p>Autor: {libro.autor}</p>
-              <p>Calificacion: {libro.calificacion}</p>
+              <p>Calificacion: {libro.calificacion}⭐</p>
               <p>Estado: {libro.status}</p>
               <p>Genero: {libro.genero}</p>
               <p>Reseña del libro: {libro.reseña}</p>
               <p>Descripción: {libro.description}</p>
               <button onClick={() => navigate(`/libroForm/${libro.id}`)}>Editar</button>
-              <button onClick={() => deleteLibro(libro.id)}>Eliminar</button>
             </li>
           ))}
         </ul>

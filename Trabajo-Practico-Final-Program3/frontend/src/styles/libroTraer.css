@@ -1,9 +1,16 @@
+body{
+  background: linear-gradient(90deg, #dfdffe 60%, #8a8afe 100%)
+}
+
 .libro-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   margin-bottom: 1.5rem;
-  gap: 1.5rem;
+  margin-left: 1rem;
+  margin-right: 2rem;
+  gap: 3rem;
+  justify-content: center;
+
 }
 
 .agregar-libro-btn {
@@ -33,22 +40,25 @@
 }
 
 .buscar-genero-btn {
-  background: #1976d2;
+  background: linear-gradient(90deg, #1976d2 60%, #42a5f5 100%);
   color: #fff;
   border: none;
   border-radius: 5px;
   padding: 0.4rem 1rem;
   cursor: pointer;
   transition: background 0.2s;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.10);
 }
-
 .buscar-genero-btn:hover {
-  background: #125ea2;
+  background: linear-gradient(90deg, #125ea2 60%, #1976d2 100%);
 }
 
 .libros-titulo {
+  text-align: center;
   margin-bottom: 1rem;
   color: #222;
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 2.4rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

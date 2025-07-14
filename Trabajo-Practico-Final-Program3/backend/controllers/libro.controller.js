@@ -91,7 +91,7 @@ const createLibro = async (req, res) => {
 const updateLibro = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, description, status } = req.body;
+    const { title, description, status, genero, autor, reseña, calificacion } = req.body;
     
     const libro = await Libro.findByPk(id);
     if (!libro) {
@@ -99,9 +99,13 @@ const updateLibro = async (req, res) => {
     }
     
     const updatedLibro = await libro.update({
-      title: title || libro.title,
+      title: title !== undefined ? title : libro.title,
       description: description !== undefined ? description : libro.description,
-      status: status || libro.status
+      status: status !== undefined ? status : libro.status,
+      genero: genero !== undefined ? genero : libro.genero,
+      autor: autor !== undefined ? autor : libro.autor,
+      reseña: reseña !== undefined ? reseña : libro.reseña,
+      calificacion: calificacion !== undefined ? calificacion : libro.calificacion
     });
     
     res.json({

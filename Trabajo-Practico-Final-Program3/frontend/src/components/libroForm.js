@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import '../styles/libroForm.css';
+import '../styles/error.css';
 
 
 function LibroForm() {
@@ -76,7 +77,14 @@ function LibroForm() {
     return (
         <>
             {error ? (
-                <div style={{ color: 'red', margin: '1em 0' }}>Error: {error}</div>
+                <div className="error-container">
+                    <div className="error-mensaje">
+                        <p>
+                            Error: {error}
+                        </p>
+                        <a href="/">Volver</a>
+                    </div>
+                </div>
             ) : (
                 <div className='libro-form-container'>
                 <form className="libro-form" onSubmit={handleSubmit}>

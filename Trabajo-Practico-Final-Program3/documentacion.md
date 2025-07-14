@@ -19,7 +19,6 @@ Este proyecto es una aplicación web para la gestión de libros, desarrollada co
 - Alta, baja, modificación y consulta de libros.
 - Búsqueda de libros por género.
 - Calificación y reseña de libros.
-- Filtros por estado (Leído, Leyendo, Por leer).
 - Interfaz amigable y validaciones en frontend.
 
 ## Instalación y Ejecución
@@ -54,8 +53,6 @@ pgadmin/    # Configuración PgAdmin
 
 - **libroForm.js**: Formulario para alta y edición de libros.
 - **libroTraer.js**: Listado y búsqueda de libros.
-- **libroList.js**: (opcional) Listado simple de libros.
-- **libroView.js**: (opcional) Vista detallada de un libro.
 
 ## Consideraciones Técnicas
 
