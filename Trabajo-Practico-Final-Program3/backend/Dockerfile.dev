@@ -24,5 +24,5 @@ COPY . .
 # Exponer puertos (app y debugging)
 EXPOSE 3001 9229
 
-# Comando con nodemon para hot reload
-CMD ["npm", "run", "dev"]
+# Comando con nodemon para hot reload y migraciones/seeds
+CMD sh -c "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && npm run dev"
