@@ -24,5 +24,7 @@ COPY . .
 # Exponer puertos (app y debugging)
 EXPOSE 3001 9229
 
-# Comando con nodemon para hot reload y migraciones/seeds
-CMD sh -c "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && npm run dev"
+# Dar permisos de ejecución al entrypoint
+RUN chmod +x ./entrypoint.sh
+# Usar entrypoint personalizado
+ENTRYPOINT ["./entrypoint.sh"]

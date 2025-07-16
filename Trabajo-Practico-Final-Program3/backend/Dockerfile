@@ -12,5 +12,7 @@ COPY . .
 # Exponer puerto
 EXPOSE 3001
 
-# Comando por defecto
-CMD npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && node server.js
+# Dar permisos de ejecución al entrypoint
+RUN chmod +x ./entrypoint.sh
+# Usar entrypoint personalizado
+ENTRYPOINT ["./entrypoint.sh"]
